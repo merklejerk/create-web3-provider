@@ -1,0 +1,30 @@
+{
+	"name": "create-web3-provider",
+	"version": "1.0.0",
+	"description": "Easily create a web3 provider from scratch.",
+	"main": "src/index.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/cluracan/create-web3-provider.git"
+	},
+	"bugs": {
+		"url": "https://github.com/cluracan/create-web3-provider/issues"
+	},
+	"author": "Lawrence Forman <not.larry@klv.io>",
+	"license": "Apache-2.0",
+	"dependencies": {
+		"ethereumjs-util": "^5.2.0",
+		"lodash": "^4.17.10",
+		"web3": "^1.0.0-beta.34"
+	},
+	"keywords": [
+		"ethereum",
+		"web3",
+		"library",
+		"es2017",
+		"simple",
+		"easy",
+		"zero configuration",
+		"zero-conf"
+	]
+}
