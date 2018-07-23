@@ -1,7 +1,16 @@
+![npm package](https://badge.fury.io/js/create-web3-provider.svg)
+
 # create-web3-provider
 Create a web3 provider from scratch, with minimal to no configuration.
 
 You can then pass the created provider directly into the Web3 constructor.
+
+## Installation
+```bash
+npm install create-web3-provider
+# or
+yarn install create-web3-provider
+```
 
 ## Example Usage
 ```js
