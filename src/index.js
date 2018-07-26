@@ -1,16 +1,60 @@
 'use strict'
 const _ = require('lodash');
-const Web3 = require('web3');
+const WebsocketProvider = require('web3-providers-ws');
+const HttpProvider = require('web3-providers-http');
+const IpcProvider = require('web3-providers-ipc');
 
 function createProvider(opts={}) {
-	const uri = opts.uri || createProviderURI(opts.ws, opts.network, opts.infuraKey);
+	opts = _.defaults({}, opts, {
+			reconnect: true
+		});
+	const uri = opts.uri ||
+		createProviderURI(opts.ws, opts.network, opts.infuraKey);
+	const provider = new WrappedProvider(uri, opts);
+	if (opts.reconnect && _.isNumber(opts.reconnect) && opts.reconnect > 0) {
+		// Force regular reconnects.
+		setInterval(() => provider.reconnect(), opts.reconnect);
+	}
+	return provider;
+}
+
+class WrappedProvider {
+	constructor(uri, opts={}) {
+		this._opts = opts;
+		this.uri = uri;
+		this.reconnect();
+	}
+
+	reconnect() {
+		if (this.provider && this.provider.connection) {
+			const connection = this.provider.connection;
+			this.provider = null;
+			connection.close();
+		}
+		this.provider = _createProvider(this.uri, this._opts);
+		_.extend(this, this.provider);
+		if (this._opts.reconnect) {
+			if (_.isFunction(this.provider.on)) {
+				const handler = () => {
+					if (this.provider)
+						this.reconnect();
+				};
+				this.provider.on('error', handler)
+				this.provider.on('end', handler)
+				this.provider.on('close', handler);
+			}
+		}
+	}
+}
+
+function _createProvider(uri, opts={}) {
 	if (/^https?:\/\/.+$/.test(uri))
-		return new Web3.providers.HttpProvider(uri);
+		return new HttpProvider(uri, opts);
 	if (/^wss?:\/\/.+$/.test(uri))
-		return new Web3.providers.WebsocketProvider(uri);
+		return new WebsocketProvider(uri, opts);
 	if (!opts.net)
 		throw new Error(`IPC transport requires 'net' option.`);
-	return new Web3.providers.IpcProvider(uri, opts.net);
+	return new IpcProvider(uri, opts.net);
 }
 
 function createProviderURI(websocket, network, infuraKey) {

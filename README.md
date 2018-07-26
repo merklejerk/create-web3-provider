@@ -19,6 +19,8 @@ const cw3p = require('create-web3-provider');
 let provider = cw3p();
 // Create an infura-backed provider on the ropsten network.
 provider = cw3p({network: 'ropsten'});
+// Same, but use websockets.
+provider = cw3p({ws: true, network: 'ropsten'});
 // Create an infura-backed provider using your own API key.
 provider = cw3p({infuraKey: 'MySecretInfuraKey'});
 // Create a provider connected to 'http://localhost:8545'
@@ -42,5 +44,13 @@ cw3p({
 	uri: String,
 	// If using an IPC path, set this to `require('net')`
 	net: Object,
+	// If true, will automatically reconnect websocket connections.
+	// If a number, the underlying provider will be recreated regularly after
+	// the number of milliseconds specified.
+	reconnect: Boolean | Number,
+	// Array of {name: ..., value: ...} HTTP or websocket headers.
+	headers: Array,
+	// Timeout for HTTP or websocket requests, in ms.
+	timeout: Number
 });
 ```
