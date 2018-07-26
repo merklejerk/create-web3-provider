@@ -34,7 +34,8 @@ cw3p({
 	network: String,
 	// Infura API key, if using infura.
 	infuraKey: String,
-	// Connect to a custom provider. May be an http://, ws://, or IPC path.
+	// Connect to a custom provider.
+	// May be an http://, https://, ws://, wss:// or IPC path.
 	// IPC paths require the 'net' option as well.
 	uri: String,
 	// If using an IPC path, set this to `require('net')`

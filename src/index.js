@@ -6,7 +6,7 @@ function createProvider(opts={}) {
 	const uri = opts.uri || createProviderURI(opts.network, opts.infuraKey);
 	if (/^https?:\/\/.+$/.test(uri))
 		return new Web3.providers.HttpProvider(uri);
-	if (/^ws:\/\/.+$/.test(uri))
+	if (/^wss?:\/\/.+$/.test(uri))
 		return new Web3.providers.WebsocketProvider(uri);
 	if (!opts.net)
 		throw new Error(`IPC transport requires 'net' option.`);
