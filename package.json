@@ -1,14 +1,14 @@
 {
 	"name": "create-web3-provider",
-	"version": "1.3.0",
+	"version": "1.3.1",
 	"description": "Easily create a web3 provider from scratch.",
 	"main": "src/index.js",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/cluracan/create-web3-provider.git"
+		"url": "https://github.com/merklejerk/create-web3-provider.git"
 	},
 	"bugs": {
-		"url": "https://github.com/cluracan/create-web3-provider/issues"
+		"url": "https://github.com/merklejerk/create-web3-provider/issues"
 	},
 	"author": "Lawrence Forman <not.larry@klv.io>",
 	"license": "Apache-2.0",
