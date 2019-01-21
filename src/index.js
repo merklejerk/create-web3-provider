@@ -59,18 +59,12 @@ function _createProvider(uri, opts={}) {
 
 function createProviderURI(websocket, network, infuraKey) {
 	network = network || 'main';
-	infuraKey = infuraKey || createInfuraKey();
+	infuraKey = infuraKey || 'b9618835284c4f5984bf6fe7332c2b2e';
 	if (network == 'main')
 		network = 'mainnet';
 	if (websocket)
-		return `wss://${network}.infura.io/ws/${infuraKey}`;
-	return `https://${network}.infura.io/${infuraKey}`;
-}
-
-function createInfuraKey() {
-	const symbols =
-		'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-	return _.times(20, () => symbols[_.random(0, symbols.length-1)]).join('');
+		return `wss://${network}.infura.io/ws/v3/${infuraKey}`;
+	return `https://${network}.infura.io/v3/${infuraKey}`;
 }
 
 module.exports = createProvider;
