@@ -34,7 +34,7 @@ provider = cw3p({uri: '/path/to/provider.ipc', net: require('net')});
 cw3p({
 	// Network to connect to. May be 'main', ''mainnet', 'ropsten', or 'rinkeby'.
 	network: String,
-	// Infura API key, if using infura.
+	// Infura project ID, if not connecting to a custom provider.
 	infuraKey: String,
 	// Use websocket infura endpoint instead of HTTP.
 	ws: Boolean,
