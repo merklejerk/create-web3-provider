@@ -28,5 +28,6 @@
 		"easy",
 		"zero configuration",
 		"zero-conf"
-	]
+	],
+	"devDependencies": {}
 }
