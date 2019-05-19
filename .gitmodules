@@ -1,0 +1,3 @@
+[submodule "vendor/web3.js"]
+	path = vendor/web3.js
+	url = git@github.com:ethereum/web3.js.git

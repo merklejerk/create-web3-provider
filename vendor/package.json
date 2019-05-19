@@ -1,0 +1,11 @@
+{
+	"name": "vendor",
+	"version": "1.0.0",
+	"description": "vendor libraries for create-web3-provider",
+	"private": true,
+	"scripts": {
+		"install": "pushd web3.js && yarn -D",
+		"clean": "rm -rf ./dist/*",
+		"build": "pushd web3.js && yarn run build && cp ./packages/web3-providers/dist/web3-providers.cjs.js ../dist/web3-providers.js"
+	}
+}

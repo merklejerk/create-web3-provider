@@ -3,7 +3,7 @@
 # create-web3-provider
 Create a web3 provider from scratch, with minimal to no configuration.
 
-You can then pass the created provider directly into the Web3 constructor.
+You can then pass the created provider directly into the [Web3](https://web3js.readthedocs.io) constructor.
 
 ## Installation
 ```bash
@@ -44,10 +44,6 @@ cw3p({
 	uri: String,
 	// If using an IPC path, set this to `require('net')`
 	net: Object,
-	// If true, will automatically reconnect websocket connections.
-	// If a number, the underlying provider will be recreated regularly after
-	// the number of milliseconds specified.
-	reconnect: Boolean | Number,
 	// Array of {name: ..., value: ...} HTTP or websocket headers.
 	headers: Array,
 	// Timeout for HTTP or websocket requests, in ms.
