@@ -1,3 +1,4 @@
 /.travis.yml
 /test
 /vendor/web3.js
+**/*.log
