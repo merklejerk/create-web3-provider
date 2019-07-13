@@ -3,7 +3,6 @@ const _ = require('lodash');
 const providers = require('../vendor/dist/web3-providers');
 
 function createProvider(opts={}) {
-	console.log(opts);
 	opts = _.defaults({}, opts);
 	const uri = opts.uri ||
 		createProviderURI(opts.ws, opts.network, opts.infuraKey);
