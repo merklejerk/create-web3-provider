@@ -1,6 +1,6 @@
 {
 	"name": "create-web3-provider",
-	"version": "1.5.4",
+	"version": "1.6.0",
 	"description": "Easily create a web3 provider from scratch.",
 	"main": "src/index.js",
 	"repository": {
@@ -12,18 +12,9 @@
 	},
 	"author": "Lawrence Forman <me@merklejerk.com>",
 	"license": "Apache-2.0",
-	"scripts": {
-		"clean": "pushd ./vendor && yarn clean",
-		"build": "pushd ./vendor && yarn -D && yarn build"
-	},
 	"dependencies": {
-		"@babel/runtime": "^7.4.4",
-		"ethereumjs-util": "^6.1.0",
-		"eventemitter3": "^3.1.2",
 		"lodash": "^4.17.14",
-		"url-parse": "^1.4.7",
-		"websocket": "^1.0.28",
-		"xhr2-cookies": "^1.1.0"
+		"web3": "^1.2.9"
 	},
 	"keywords": [
 		"ethereum",

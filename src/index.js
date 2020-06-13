@@ -1,6 +1,6 @@
 'use strict'
 const _ = require('lodash');
-const providers = require('../vendor/dist/web3-providers');
+const { providers } = require('web3');
 
 function createProvider(opts={}) {
 	opts = _.defaults({}, opts);
@@ -24,7 +24,6 @@ function _createProvider(uri, opts={}) {
 
 function createProviderURI(websocket, network, infuraKey) {
 	network = network || 'main';
-	infuraKey = infuraKey || 'b9618835284c4f5984bf6fe7332c2b2e';
 	if (network == 'main') {
 		network = 'mainnet';
 	}
