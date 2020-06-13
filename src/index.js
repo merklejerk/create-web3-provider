@@ -24,6 +24,7 @@ function _createProvider(uri, opts={}) {
 
 function createProviderURI(websocket, network, infuraKey) {
 	network = network || 'main';
+	infuraKey = infuraKey || 'b9618835284c4f5984bf6fe7332c2b2e';
 	if (network == 'main') {
 		network = 'mainnet';
 	}

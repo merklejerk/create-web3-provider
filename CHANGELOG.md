@@ -1,3 +1,6 @@
+## 1.6.1
+- Reintroduce default API key.
+
 ## 1.6.0
 - Use latest version of `web3` package, and latest providers.
 
